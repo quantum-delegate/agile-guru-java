@@ -16,6 +16,14 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Item implements Serializable {
     private Long id;
     private String itemText;
+    
+    public Item(){
+    	
+    };
+    public Item (String text){
+    	this.itemText = text;
+    }
+    
      
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -43,4 +51,8 @@ public class Item implements Serializable {
         return "Item - Id: " + id + ", Item text: " + itemText ;
     }   
      
+    @Override
+    public boolean equals(Object item) {
+        return (id == ((Item)item).getId() && itemText.equals(((Item)item).getItemText()));
+    }
 }
