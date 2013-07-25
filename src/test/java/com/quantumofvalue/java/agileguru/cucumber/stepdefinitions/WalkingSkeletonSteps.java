@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Resource;
 
+import com.google.common.base.Function;
 import org.junit.Assert;
 import com.quantumofvalue.java.agileguru.domain.Item;
 import com.quantumofvalue.java.agileguru.service.ItemService;
@@ -12,10 +13,13 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.api.PendingException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import static com.google.common.collect.Lists.transform;
 
 public class WalkingSkeletonSteps {
 
@@ -53,8 +57,13 @@ public class WalkingSkeletonSteps {
     }
 
     @Then("^I should see \"([^\"]*)\" and \"([^\"]*)\" listed on the page.$")
-    public void I_should_see_and_listed_on_the_page(String arg1, String arg2) throws Throwable {
-        // Express the Regexp above with the code you wish you had
-        throw new PendingException();
+    public void I_should_see_and_listed_on_the_page(String item1, String item2) throws Throwable {
+        List<WebElement> tdElements = driver.findElements(By.xpath("//td[@class='item_text']"));
+        List<String> stringElements = transform(tdElements, new Function<WebElement,String>() {
+            public String apply(WebElement webElement) {
+                return webElement.getText();
+            }
+        });
+        Assert.assertArrayEquals(new String[] {item1, item2}, stringElements.toArray());
     }
 }
