@@ -45,8 +45,8 @@ public class WalkingSkeletonSteps {
 	public void beforeScenario() {
 		databaseCleaner.truncate();
 
-		File file = new File("C:/Temp/IEDriverServer.exe");
-		System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
+		//File file = new File("C:/Temp/IEDriverServer.exe");
+		//System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
 
 		driver = new InternetExplorerDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
