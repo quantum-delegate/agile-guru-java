@@ -30,7 +30,7 @@ public class WalkingSkeletonSteps {
     
     WebDriver driver;
     
-    private static final String baseUrl = "http://localhost:8080";
+    private static final String baseUrl = "http://localhost:8080/dunc/";
     
     @Before
     public void beforeScenario() {  
