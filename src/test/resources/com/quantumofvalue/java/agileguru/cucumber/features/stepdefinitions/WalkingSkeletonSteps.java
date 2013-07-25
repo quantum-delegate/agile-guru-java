@@ -18,6 +18,8 @@ import static com.google.common.collect.Lists.transform;
 
 import com.quantumofvalue.java.agileguru.domain.Item;
 import com.quantumofvalue.java.agileguru.service.ItemService;
+
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -34,7 +36,7 @@ public class WalkingSkeletonSteps {
 
 	WebDriver driver;
 
-	private static final String baseUrl = "http://localhost:8080/dunc/";
+	private static final String baseUrl = "http://localhost:8080/";
 
 	@Before
 	public void beforeScenario() {
@@ -42,6 +44,12 @@ public class WalkingSkeletonSteps {
 
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+	
+	@After
+	public void afterScenario() {
+		driver.quit();
+		
 	}
 
 	@Given("^items \"([^\"]*)\" and \"([^\"]*)\" in the database$")

@@ -297,7 +297,7 @@
 				        	<goal>run</goal>
 				      	</goals>
 				      	<configuration>
-				      		<skip>true</skip>
+				      		<skip>false</skip>
 				      		<path>/</path>
 				        	<fork>true</fork>
 				      	</configuration>
@@ -309,7 +309,7 @@
 				        	<goal>shutdown</goal>
 				      	</goals>
 				      	<configuration>
-				      		<skip>true</skip>
+				      		<skip>false</skip>
 				      	</configuration>
 				    </execution>
 				</executions>
@@ -322,6 +322,7 @@
 				    <excludes>
 				      	<exclude>**/*Feature*</exclude>				      					      	
 				      	<exclude>**/Abstract*</exclude>
+				      	<exclude>**/*Service*.java</exclude>
 				    </excludes>
 				</configuration>
 			</plugin>
@@ -330,9 +331,10 @@
 			  	<artifactId>maven-failsafe-plugin</artifactId>
 			  	<version>2.15</version>
 			  	<configuration>			  		
-          			<skipTests>true</skipTests>
+          			<skipTests>false</skipTests>
 			    	<includes>
-			      		<include>**/*Feature.java</include>			      		
+			      		<include>**/*Feature.java</include>			      
+			      		<include>**/*Service*.java</include>
 			    	</includes>
 			  	</configuration>
 			  	<executions>
