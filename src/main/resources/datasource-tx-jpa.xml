@@ -17,6 +17,7 @@
      
     <context:annotation-config/>    
      
+     <context:component-scan base-package="com.quantumofvalue.java.agileguru.service" />
      
     <jpa:repositories base-package="com.quantumofvalue.java.agileguru.repository"
                       entity-manager-factory-ref="emf"
