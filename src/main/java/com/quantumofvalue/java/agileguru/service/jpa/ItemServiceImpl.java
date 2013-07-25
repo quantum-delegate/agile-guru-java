@@ -1,3 +1,4 @@
+
 package com.quantumofvalue.java.agileguru.service.jpa;
  
 import java.util.List;
@@ -22,5 +23,10 @@ public class ItemServiceImpl implements ItemService {
     @Transactional(readOnly=true)
     public List<Item> findAll() {
         return Lists.newArrayList(itemRepository.findAll());
-    }   
+    }
+     
+    @Transactional
+    public Iterable<Item> save(Iterable<Item> items) {
+        return Lists.newArrayList(itemRepository.save(items));
+    }
 }
