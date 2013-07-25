@@ -17,6 +17,13 @@ public class Item implements Serializable {
     private Long id;
     private String itemText;
 
+    public Item(String itemText) {
+        this.itemText = itemText;
+    }
+
+    public Item() {
+    }
+
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "ID")
@@ -41,5 +48,11 @@ public class Item implements Serializable {
 
     public String toString() {
         return "Item - Id: " + id + ", Item text: " + itemText ;
+    }
+
+
+    @Override
+    public boolean equals(Object item) {
+        return (id == ((Item)item).getId() && itemText.equals(((Item)item).getItemText()));
     }
 }
