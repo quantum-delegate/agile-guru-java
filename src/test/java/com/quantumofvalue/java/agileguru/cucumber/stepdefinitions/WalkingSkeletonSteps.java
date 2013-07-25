@@ -25,7 +25,7 @@ public class WalkingSkeletonSteps {
     @Resource(name = "databaseCleaner")
     DatabaseCleaner databaseCleaner;
     private FirefoxDriver driver;
-    private String baseUrl = "/worked-example";
+    private static final String baseUrl = "http://localhost:8080";
 
     @Before
     public void beforeScenario() {
