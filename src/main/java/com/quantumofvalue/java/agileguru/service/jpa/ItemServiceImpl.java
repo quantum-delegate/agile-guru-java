@@ -23,5 +23,10 @@ public class ItemServiceImpl implements ItemService {
     @Transactional(readOnly=true)
     public List<Item> findAll() {
         return Lists.newArrayList(itemRepository.findAll());
-    }   
+    }
+
+	@Override
+	public Iterable<Item> save(Iterable<Item> items) {
+		return Lists.newArrayList(itemRepository.save(items));
+	}   
 }
