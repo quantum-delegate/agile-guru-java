@@ -51,6 +51,11 @@ public class WalkingSkeletonSteps {
 		driver = new InternetExplorerDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
+	
+	@After
+	public void afterScenario() {
+		driver.quit();
+	}
 
 	@Given("^items \"([^\"]*)\" and \"([^\"]*)\" in the database$")
 	public void items_and_in_the_database(String item1, String item2)
